@@ -12,6 +12,13 @@ before_script:
 # the `install` step will run `bundle install` by default.
 script: ./script/cibuild
 
+deploy:
+  skip_cleanup: true
+  provider: surge
+  project: ./_site/
+  domain: pptlabs-skaty.surge.sh
+  on: surge-test
+
 env:
   global:
   - NOKOGIRI_USE_SYSTEM_LIBRARIES=true # speeds up installation of html-proofer
